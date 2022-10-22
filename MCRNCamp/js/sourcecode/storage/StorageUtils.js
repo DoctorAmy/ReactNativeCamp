@@ -10,6 +10,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
  */
 
 export default class StorageUtils extends Component {
+    // 增
     static async add(key, value) {
         try {
             await AsyncStorage.setItem(key, value);
@@ -19,6 +20,7 @@ export default class StorageUtils extends Component {
         }
     }
 
+    // 删
     static async remove(key) {
         try {
             await AsyncStorage.removeItem(key)
@@ -28,6 +30,7 @@ export default class StorageUtils extends Component {
         }
     }
 
+    // 查单个key
     static async get(key) {
         try {
             const value = await AsyncStorage.getItem(key);
@@ -44,6 +47,7 @@ export default class StorageUtils extends Component {
         }
     }
 
+    // 查所有key
     static async gatAllKeys() {
         try {
             let allKeys = await AsyncStorage.getAllKeys();
@@ -54,6 +58,7 @@ export default class StorageUtils extends Component {
         }
     }
 
+    // 查所有key和Value
     static async describe() {
         try {
             let allKeys = await AsyncStorage.getAllKeys();
@@ -72,6 +77,7 @@ export default class StorageUtils extends Component {
         }
     }
 
+    // 清理
     static async clear() {
         try {
             await AsyncStorage.clear();

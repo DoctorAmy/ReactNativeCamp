@@ -25,7 +25,6 @@ export default class StorgeLogin extends Component {
             try {
                 const result = JSON.parse(data);
                 callback(result);
-
             } catch (error) {
                 callback(undefined);
             }
