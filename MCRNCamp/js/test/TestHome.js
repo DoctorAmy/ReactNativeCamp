@@ -8,41 +8,21 @@ import {
     Text,
     View,
 } from 'react-native';
+import { USERNAME_KEY } from '../sourcecode/storage/StorageDefines';
+import StorgeLogin from '../sourcecode/storage/StorageLogin';
 import StorageUtils from '../sourcecode/storage/StorageUtils';
 
 export default class TestHome extends Component {
 
     storageTest() {
-        StorageUtils.add("ip", "192.168.3.1");
+        StorgeLogin.saveUsernameAndPswd("DoctorAmy","123456");
 
-        StorageUtils.get("ip").then((data) => {
-            console.log("get ip is " + data);
-        });
-
-        StorageUtils.gatAllKeys().then((data) => {
-            console.log("gatAllKeys is " + data);
-        });
-
-        StorageUtils.remove("ip");
-
-        StorageUtils.gatAllKeys().then((data) => {
-            console.log("gatAllKeys is " + data);
-        });
-
-        StorageUtils.add("port", "8080");
-
-        StorageUtils.get("port").then((data) => {
-            console.log("get port is " + data);
-        });
-
-        StorageUtils.gatAllKeys().then((data) => {
-            console.log("gatAllKeys is " + data);
-        });
-
-        StorageUtils.clear();
-
-        StorageUtils.gatAllKeys().then((data) => {
-            console.log("gatAllKeys is " + data);
+        StorgeLogin.getUserInfo((data)=>{
+            console.log("getUserInfo data is" + JSON.stringify(data));
+            let userName = data.userName;
+            console.log("getUserInfo data userName is " + userName);
+            let password = data.password;
+            console.log("getUserInfo data password is " + password);
         });
     }
 

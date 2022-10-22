@@ -1,12 +1,12 @@
-/* Copyright (C) 2022 Master. All Rights Reserved */
+/* Copyright (C) 2022 DoctorAmy. All Rights Reserved */
 
 import { Component } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 /*
  * 数据库存取管理类
- * @auther Tom
- * @since 2022-10-19
+ * @auther DoctorAmy
+ * @since 2022-10-22
  */
 
 export default class StorageUtils extends Component {
@@ -50,6 +50,24 @@ export default class StorageUtils extends Component {
             return allKeys;
         } catch (e) {
             console.log("get error is " + e);
+            return [];
+        }
+    }
+
+    static async describe() {
+        try {
+            let allKeys = await AsyncStorage.getAllKeys();
+            let result = [];
+            for (let index = 0; index < allKeys.length; index++) {
+                const key = allKeys[index];
+                await this.get(key).then((data) => {
+                    result.push({[key]:data});
+                });
+            }
+            console.log('describe is ' + JSON.stringify(result));
+            return result;
+        } catch (e) {
+            console.log("describe error is " + e);
             return [];
         }
     }
