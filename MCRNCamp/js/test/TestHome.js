@@ -1,6 +1,4 @@
-/****************************
-    Copyright (C) 2022 Master. All Rights Reserved
-****************************/
+/* Copyright (C) 2022 DoctorAmy. All Rights Reserved */
 
 import React, { Component } from 'react';
 import {
@@ -8,10 +6,13 @@ import {
     Text,
     View,
 } from 'react-native';
-import { USERNAME_KEY } from '../sourcecode/storage/StorageDefines';
 import StorgeLogin from '../sourcecode/storage/StorageLogin';
-import StorageUtils from '../sourcecode/storage/StorageUtils';
 
+/*
+ * 调试页面
+ * @auther DoctorAmy
+ * @since 2022-10-23
+ */
 export default class TestHome extends Component {
 
     storageTest() {
