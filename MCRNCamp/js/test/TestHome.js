@@ -7,6 +7,7 @@ import {
     View,
 } from 'react-native';
 import StorgeLogin from '../sourcecode/storage/StorageLogin';
+import Logo from "../resource/images/team/team_01.svg";
 
 /*
  * 调试页面
@@ -34,6 +35,7 @@ export default class TestHome extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <Logo style={styles.logImage}/>
                 <Text style={styles.hello}>Hello, World</Text>
             </View>
         );
@@ -43,7 +45,12 @@ export default class TestHome extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        alignItems:""
+    },
+    logImage :{
+        width:200,
+        height:150
     },
     hello: {
         fontSize: 20,
